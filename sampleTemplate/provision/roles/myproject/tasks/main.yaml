@@ -1,0 +1,19 @@
+- name: create testdir in home
+  file:
+       path: /home/testdir
+       state: directory
+       owner: root
+       group: root
+       mode: 0755
+  tags: create_dir
+  
+
+- name: create file1 in home/testdir
+  file:
+       path: /home/testdir/file1
+       state: touch
+       owner: root
+       group: root
+       mode: 0755
+  tags: create_file
+  

@@ -156,3 +156,64 @@ sampleTemplate/
 11 directories, 7 files
 
 ```
+
+Now I'm going to change new sampleTemplate, in my case I have created two other virtual machines and their IPs are as below:
+```bash
+cat <<EOF >>  ~/sampleTemplate/provision/inventory/hosts
+[myservers]
+192.168.56.103
+192.168.56.102
+EOF
+```
+Now lets define our provision:
+```bash
+cat <<EOF >> ~/sampleTemplate/provision/myproject.yaml
+---
+- hosts: localhost  #(List of Hosts in Inventory Directory)
+  roles:            #(roles Dir)
+        - myproject      #(Project Dir in roles)
+		
+EOF	
+```
+
+
+My tasks are similar to old playbook but in this case Im going to run task on remove servers:
+```bash
+cat <<EOF >>  ~/sampleTemplate/provision/roles/myproject/tasks/main.yaml
+- name: create testdir in home
+  file:
+       path: /home/testdir
+       state: directory
+       owner: root
+       group: root
+       mode: 0755
+  tags: create_dir
+  
+
+- name: create file1 in home/testdir
+  file:
+       path: /home/testdir/file1
+       state: touch
+       owner: root
+       group: root
+       mode: 0755
+  tags: create_file
+  
+EOF
+```
+
+Now you can install your Servers playbook:
+```bash
+ansible-playbook -i ~/sampleTemplate/provision/inventory/  ~/sampleTemplate/provision/myproject.yaml
+```
+Now lets check our tasks:
+```bash
+ansible -i ~/sampleTemplate/provision/inventory/ -m shell -a "ls /home/testdir" myservers
+```
+Output:
+```bash
+192.168.56.103 | CHANGED | rc=0 >>
+file1
+192.168.56.102 | CHANGED | rc=0 >>
+file1
+```
