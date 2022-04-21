@@ -36,5 +36,5 @@
     - ~/sampleTemplate/provision/roles/myproject/tasks/main.yaml
     - ~/sampleTemplate/provision/roles/myproject/vars/main.yaml
     - ~/sampleTemplate/provision/myproject.yaml
-    - ~/sampleTemplate/provision/inventory/anisahosts
+    - ~/sampleTemplate/provision/inventory/hosts
   tags: template
