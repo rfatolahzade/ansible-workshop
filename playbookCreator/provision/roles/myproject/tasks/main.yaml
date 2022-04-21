@@ -1,0 +1,40 @@
+- name: create directories for template playbook
+  file:
+       path: "{{ item }}"
+       state: directory
+       owner: root
+       group: root
+       mode: 0755
+  loop:
+    - ~/sampleTemplate/provision
+    - ~/sampleTemplate/provision/roles
+    - ~/sampleTemplate/provision/roles/myproject
+    - ~/sampleTemplate/provision/roles/myproject/vars
+    - ~/sampleTemplate/provision/roles/myproject/default
+    - ~/sampleTemplate/provision/roles/myproject/templates
+    - ~/sampleTemplate/provision/roles/myproject/handlers
+    - ~/sampleTemplate/provision/roles/myproject/files
+    - ~/sampleTemplate/provision/roles/myproject/meta
+    - ~/sampleTemplate/provision/roles/myproject/tasks
+    - ~/sampleTemplate/provision/inventory
+  tags: template
+  
+
+
+
+- name: create yaml files for template playbook
+  file:
+       path: "{{ item }}"
+       state: touch
+       owner: root
+       group: root
+       mode: 0755
+  loop:
+    - ~/sampleTemplate/provision/roles/myproject/default/main.yaml
+    - ~/sampleTemplate/provision/roles/myproject/handlers/main.yaml
+    - ~/sampleTemplate/provision/roles/myproject/meta/main.yaml
+    - ~/sampleTemplate/provision/roles/myproject/tasks/main.yaml
+    - ~/sampleTemplate/provision/roles/myproject/vars/main.yaml
+    - ~/sampleTemplate/provision/myproject.yaml
+    - ~/sampleTemplate/provision/inventory/anisahosts
+  tags: template
