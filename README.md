@@ -125,7 +125,7 @@ Fill it as below:
 
 Now you can install your local playbook:
 ```bash
-ansible-playbook -i ~/ansible-workshop/playbookCreaor/provision/inventory  ~/ansible-workshop/playbookCreaor/provision/myproject.yaml
+ansible-playbook -i ~/ansible-workshop/playbookCreator/provision/inventory  ~/ansible-workshop/playbookCreator/provision/myproject.yaml
 ```
 Take a look to our output:
 ```bash
