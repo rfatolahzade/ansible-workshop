@@ -36,6 +36,19 @@
     - ~/sampleTemplate/provision/roles/myproject/meta/main.yaml
     - ~/sampleTemplate/provision/roles/myproject/tasks/main.yaml
     - ~/sampleTemplate/provision/roles/myproject/vars/main.yaml
-    - ~/sampleTemplate/provision/myproject.yaml
-    - ~/sampleTemplate/provision/inventory/hosts
+#    - ~/sampleTemplate/provision/myproject.yaml
+#    - ~/sampleTemplate/provision/inventory/hosts
+  tags: template
+  
+  
+- name: Copy myproject
+  copy:
+    src: myproject.yaml
+    dest: ~/sampleTemplate/provision/myproject.yaml
+  tags: template
+  
+- name: Copy hosts
+  copy:
+    src: hosts
+    dest: ~/sampleTemplate/provision/inventory/hosts
   tags: template
