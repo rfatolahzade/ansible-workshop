@@ -16,6 +16,7 @@
     - ~/sampleTemplate/provision/roles/myproject/files
     - ~/sampleTemplate/provision/roles/myproject/meta
     - ~/sampleTemplate/provision/roles/myproject/tasks
+    - ~/sampleTemplate/provision/roles/myproject/test
     - ~/sampleTemplate/provision/inventory
   tags: template
   
