@@ -1,5 +1,0 @@
----
-- hosts: localhost  #(List of Hosts in Inventory Directory)
-  roles:            #(roles Dir)
-        - myproject      #(Project Dir in roles)
-
