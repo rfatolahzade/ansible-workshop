@@ -1,0 +1,4 @@
+---
+- hosts: staging
+  roles:
+       - { role: ping }
