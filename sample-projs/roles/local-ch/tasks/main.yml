@@ -1,8 +1,8 @@
 ---
 # tasks file for local-ch
-- name: create testdir in home
+- name: create testdir in tmp
   file:
-       path: /home/testdir
+       path: /tmp/testdir
        state: directory
        owner: root
        group: root
@@ -10,9 +10,9 @@
   tags: create_dir
   
 
-- name: create file1 in home/testdir
+- name: create file1 in tmp/testdir
   file:
-       path: /home/testdir/file1
+       path: /tmp/testdir/file1
        state: touch
        owner: root
        group: root
