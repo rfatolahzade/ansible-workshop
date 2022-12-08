@@ -217,3 +217,9 @@ file1
 192.168.56.102 | CHANGED | rc=0 >>
 file1
 ```
+
+### Sample Proj
+
+```bash
+ansible-playbook -i local local-ch.yaml -v
+```
