@@ -5,6 +5,14 @@ Install pre packages (CentOS_7.6_minimal):
 yum install bash-completion -y
 bash
 ```
+On ubuntu:
+```bash
+sudo apt update
+sudo apt install software-properties-common
+sudo add-apt-repository --yes --update ppa:ansible/ansible
+sudo apt install ansible
+```
+ 
 In my case I changed the hostname:
 ```bash
 hostnamectl set-hostname Ansible
